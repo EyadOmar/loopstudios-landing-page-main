@@ -25,7 +25,7 @@ header {
     border: 0;
     width: 2rem;
     aspect-ratio: 1;
-    position: fixed;
+    position: absolute;
     right: u.rem(20);
   }
   & button[aria-expanded='true'] {
@@ -37,6 +37,7 @@ header {
     }
   }
 }
+
 .mainNav {
   font-size: 1.3rem;
   margin: 0;
@@ -78,6 +79,7 @@ header {
     }
   }
 }
+
 section.landing {
   color: var(--white);
   background-image: u.$mHero;
@@ -110,6 +112,7 @@ section.landing {
     }
   }
 }
+
 section.vr {
   padding-top: u.rem(80);
   margin-bottom: u.rem(60);
@@ -144,6 +147,106 @@ section.vr {
       background-color: #fff;
       padding-left: 4rem;
       padding-top: 5rem;
+    }
+  }
+}
+
+section.create {
+  padding-bottom: u.rem(80);
+  & .title {
+    margin-bottom: 3rem;
+  }
+  & .title h2 {
+    font-family: u.$fThin;
+    font-size: clamp(2rem, 1rem + 2vw, 4rem);
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    flex: 1;
+  }
+  & .title button {
+    text-transform: uppercase;
+    margin-bottom: 0;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--white);
+    color: var(--black);
+    transition: 0.5s;
+    letter-spacing: 3px;
+    cursor: pointer;
+  }
+  & .title button:hover {
+    color: var(--white);
+    background-color: var(--black);
+  }
+
+  //In mobile
+  @include u.breakpoint-down(medium) {
+    & .title h2 {
+      text-align: center;
+    }
+    & .title button {
+      display: none;
+    }
+  }
+}
+
+section.create .content {
+  display: grid;
+  gap: 2rem;
+
+  @include u.breakpoint-up(medium) {
+    grid-template-columns: repeat(auto-fill, calc(25% - 1.5rem));
+  }
+
+  & figure {
+    margin: 0;
+    position: relative;
+    background-color: white;
+
+    @include u.breakpoint-up(medium) {
+      cursor: pointer;
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background-color: hsl(0, 0, 100%, 0);
+        transition: background-color 0.35s;
+      }
+      &:hover::after {
+        background-color: hsl(0, 0, 100%, 0.6);
+      }
+      &:hover figcaption {
+        color: var(--black);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        box-shadow: inset 0px 0px 50px black;
+      }
+    }
+
+    & figcaption {
+      font-family: u.$fThin;
+      font-weight: 300;
+      font-size: 2.3rem;
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      padding: 1rem;
+      color: #fff;
+      width: 15rem;
+      text-transform: uppercase;
+      z-index: 2;
+      transition: color 0.35s;
+
+      @include u.breakpoint-up(medium) {
+        width: 14rem;
+        font-size: 2rem;
+      }
     }
   }
 }
