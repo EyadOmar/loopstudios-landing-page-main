@@ -5,25 +5,41 @@
 header {
   background-color: transparent;
   min-height: u.rem(80);
-}
-nav ul li a {
-  padding-inline: u.rem(10);
-  position: relative;
-
-  &:after {
-    position: absolute;
-    content: '';
-    height: u.rem(1);
-    width: u.rem(30);
-    background-color: var(--white);
-    left: 50%;
-    transform: translate(-50%);
-    bottom: u.rem(10);
-    opacity: 0;
-    transition: 0.3s;
+  @include u.breakpoint-down(medium) {
+    min-height: u.rem(60);
+    & .logo {
+      width: u.rem(150);
+    }
   }
-  &:hover:after {
-    bottom: u.rem(-10);
-    opacity: 1;
+  @include u.breakpoint-up(medium) {
+    & img:last-of-type {
+      display: none;
+    }
+  }
+}
+nav {
+  @include u.breakpoint-down(medium) {
+    display: none;
+  }
+  & ul li a {
+    padding-inline: u.rem(10);
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      height: u.rem(1);
+      width: u.rem(30);
+      background-color: var(--white);
+      left: 50%;
+      transform: translate(-50%);
+      bottom: u.rem(10);
+      opacity: 0;
+      transition: 0.3s;
+    }
+    &:hover:after {
+      bottom: u.rem(-10);
+      opacity: 1;
+    }
   }
 }
