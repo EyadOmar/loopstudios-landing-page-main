@@ -1,0 +1,17 @@
+html {
+  box-sizing: border-box;
+  font-size: 93.75%; //default font size is 15px as frontend mentor style guide
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #282828;
+  color: white;
+}
