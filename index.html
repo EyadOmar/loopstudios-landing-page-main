@@ -19,14 +19,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./app/JS/nav.js" defer></script>
   </head>
   <body>
     <header class="flex-center">
       <div class="container flex-between">
         <img class="logo" src="./app/images/logo.svg" alt="Loop studios logo" />
-        <img src="./app/images/icon-hamburger.svg" alt="link menu btn" />
+        <button
+          class="mobile-nav-toggle"
+          aria-controls="mainNav"
+          aria-expanded="false"
+        ></button>
         <nav>
-          <ul class="flex">
+          <ul class="mainNav flex" id="mainNav" data-visible="false">
             <li><a href="#">About</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Events</a></li>
