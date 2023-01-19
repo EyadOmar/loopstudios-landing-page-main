@@ -54,25 +54,4 @@ header {
   &[data-visible='true'] {
     transform: translateX(0);
   }
-  & li a {
-    @include u.breakpoint-up(medium) {
-      position: relative;
-      &:after {
-        position: absolute;
-        content: '';
-        height: u.rem(1);
-        width: u.rem(30);
-        background-color: var(--white);
-        left: 50%;
-        transform: translate(-50%);
-        bottom: u.rem(10);
-        opacity: 0;
-        transition: 0.3s;
-      }
-      &:hover:after {
-        bottom: u.rem(-10);
-        opacity: 1;
-      }
-    }
-  }
 }

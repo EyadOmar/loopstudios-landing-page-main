@@ -42,3 +42,25 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.nav-hover li a {
+  @include u.breakpoint-up(medium) {
+    position: relative;
+    &::after {
+      position: absolute;
+      content: '';
+      height: u.rem(2);
+      width: u.rem(30);
+      background-color: var(--white);
+      left: 50%;
+      transform: translate(-50%);
+      bottom: u.rem(10);
+      opacity: 0;
+      transition: 0.3s;
+    }
+    &:hover:after {
+      bottom: u.rem(-10);
+      opacity: 1;
+    }
+  }
+}
