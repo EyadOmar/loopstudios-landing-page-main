@@ -1,0 +1,100 @@
+@use '../util' as u;
+footer {
+  background-color: var(--black);
+  color: var(--white);
+  position: relative;
+  padding-block: 3rem;
+  overflow: hidden;
+
+  @include u.breakpoint-down(medium) {
+    text-align: center;
+    & .flex {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  & .container {
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    @include u.breakpoint-down(medium) {
+      flex-direction: column;
+    }
+  }
+
+  & .left__nav {
+    margin-top: 2rem;
+    gap: 1rem;
+    @include u.breakpoint-down(medium) {
+      flex-direction: column;
+    }
+
+    @include u.breakpoint-up(medium) {
+      & li a {
+        position: relative;
+        &::after {
+          position: absolute;
+          content: '';
+          height: u.rem(2);
+          width: u.rem(30);
+          background-color: var(--white);
+          left: 50%;
+          transform: translate(-50%);
+          bottom: u.rem(10);
+          opacity: 0;
+          transition: 0.3s;
+        }
+        &:hover:after {
+          bottom: u.rem(-10);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  & .social {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    @include u.breakpoint-up(medium) {
+      justify-content: flex-end;
+      & li a {
+        position: relative;
+        &::after {
+          position: absolute;
+          content: '';
+          height: u.rem(2);
+          width: 100%;
+          background-color: var(--white);
+          left: 50%;
+          transform: translate(-50%);
+          bottom: u.rem(10);
+          opacity: 0;
+          transition: 0.3s;
+        }
+        &:hover:after {
+          bottom: u.rem(-10);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  & p {
+    color: var(--dark-gray);
+    font-size: 0.8rem;
+  }
+
+  & .attribution {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    font-size: u.rem(12);
+    padding: 0.5rem;
+
+    & a {
+      color: magenta;
+    }
+  }
+}
