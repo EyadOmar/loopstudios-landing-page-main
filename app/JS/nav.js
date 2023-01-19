@@ -2,7 +2,6 @@ const mainNav = document.querySelector('.mainNav');
 const mobileNavBtn = document.querySelector('.mobile-nav-toggle');
 
 mobileNavBtn.addEventListener('click', () => {
-  console.log('clciked');
   const visiblity = mainNav.getAttribute('data-visible');
   if (visiblity === 'false') {
     mainNav.setAttribute('data-visible', 'true');

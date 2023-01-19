@@ -50,8 +50,10 @@ header {
     transition: transform 0.35s;
     font-size: 2rem;
     font-family: u.$fThin;
+    opacity: 0;
   }
   &[data-visible='true'] {
     transform: translateX(0);
+    opacity: 1;
   }
 }
